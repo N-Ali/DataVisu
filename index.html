@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Anime Data</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="js/dimple.v2.3.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js" crossorigin="anonymous"></script>        
+        <script src="js/opml.js" ></script>
+        <script src="js/dataStudent.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+            #title h1{
+                font-family: 'Crimson Text', serif;
+                height: 10%;
+                margin-bottom: 5px;
+                text-align: center;
+            }
+
+            #title{
+                border-bottom: 1px solid #e8eceb;
+                margin-bottom: 15px;
+                background-color: whitesmoke;
+            }
+
+            .number{
+                font-style: italic;
+                color: darkgray;
+            }
+
+            input[type=text] {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            .hide{
+                display: none!important;
+            }
+
+            .profil-img {
+                border-radius: 1rem;
+                width: 100%;
+                height: auto;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+            button{
+                cursor: pointer;
+            }
+
+            [data-theme="dark"] #title{
+                background-color: rgb(8, 8, 8) !important;
+                color: #eee;
+            }
+
+            [data-theme="dark"] {
+                background-color: rgb(27, 27, 27) !important;
+                color: #eee;
+            }
+
+            [data-theme="dark"] .card-body{
+                background-color: darkslategray!important;
+                color: #eee!important;
+            }
+        </style>
+	</head>
+
+    <body class="bg-light">
+
+        <div id="header">
+            <div id="title" >
+                <h1>Animes Data <small>2020/2021</small></h1>
+            </div>
+        </div>
+
+        <div class="dropdown" style="text-align: center;">
+            <button id="btn_menu" class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">
+              Tous
+            </button>
+            <div class="dropdown-menu">
+              <a id="menu_TV" class="dropdown-item"  onclick="Tri('TV')" style="cursor: pointer;">TV</a>
+              <a id="menu_OVA" class="dropdown-item" onclick="Tri('OVA')" style="cursor: pointer;">OVA</a>
+              <a id="menu_FILM" class="dropdown-item" onclick="Tri('Movie')" style="cursor: pointer;">Film</a>
+              <a id="menu_Tous" class="dropdown-item" onclick="Tri('Tous')" style="cursor: pointer;">Tous</a>
+            </div>
+            <input id="search" type="text" placeholder="Recherche">
+            <button id="dark_mode" class="btn btn-dark" onclick="Switch(this)">Dark</button>
+            <a href="statistique.html">Statistiques</a>
+            
+        </div>
+        <h5 class="container">Animés</h5>
+        <div id="studentItem" class="container"></div>
+        
+
+        <script>
+            
+
+
+            let cardStudentItem = new dataStudent({
+                cont: "#studentItem",
+                apiUrl: "./data/animeJson.json"
+                //apiUrl: "https://jardindesconnaissances.univ-paris8.fr/THYP/20-21/g2/omk/api/items/32"
+            })
+
+            cardStudentItem.getData();
+
+            let divContainers = document.getElementById("studentItem");
+            
+            function Tri(id){
+                
+                let profils = divContainers.getElementsByClassName("card");
+                
+                document.getElementById("btn_menu").innerText = id
+                Object.values(profils).forEach(element => {
+                    if(id === "Tous"){
+                        element.classList.remove("hide");
+                    }
+                    else if(element.innerHTML.includes(id)){
+                        element.classList.remove("hide");
+                    }
+                    else {
+                        element.classList.add("hide");
+                    }
+                });
+            }
+
+            let input = document.getElementById("search");
+            input.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13 && input.value) {
+                    let profils = divContainers.getElementsByClassName("card");
+                    console.log(profils);
+                    Object.values(profils).forEach(element => {
+                        if(element.innerHTML.includes(input.value)){
+                            element.classList.remove("hide");
+                        }
+                        else{
+                            element.classList.add("hide");
+                        }
+                    });
+                }
+            });
+
+            function Switch(button){
+                if(button.innerHTML === "Dark"){
+                    button.innerHTML = "Light";
+                    button.classList.remove("btn-dark");
+                    button.classList.add("btn-light");
+                    document.body.setAttribute('data-theme', 'dark');
+                }
+
+                else{
+                    button.innerHTML = "Dark";
+                    button.classList.remove("btn-light");
+                    button.classList.add("btn-dark");
+                    document.body.removeAttribute('data-theme');
+                }
+            }
+
+            
+            
+
+        </script>
+    </body>
+</html>

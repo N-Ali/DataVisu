@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Anime Data</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="js/dimple.v2.3.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js" crossorigin="anonymous"></script>        
+        <script src="js/opml.js" ></script>
+        <script src="js/dataStudent.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+            #title h1{
+                font-family: 'Crimson Text', serif;
+                height: 10%;
+                margin-bottom: 5px;
+                text-align: center;
+            }
+
+            #title{
+                border-bottom: 1px solid #e8eceb;
+                margin-bottom: 15px;
+                background-color: whitesmoke;
+            }
+
+            .number{
+                font-style: italic;
+                color: darkgray;
+            }
+
+            input[type=text] {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            .hide{
+                display: none!important;
+            }
+
+            .profil-img {
+                border-radius: 1rem;
+                width: 100%;
+                height: auto;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+            button{
+                cursor: pointer;
+            }
+
+            [data-theme="dark"] #title{
+                background-color: rgb(8, 8, 8) !important;
+                color: #eee;
+            }
+
+            [data-theme="dark"] {
+                background-color: rgb(27, 27, 27) !important;
+                color: #eee;
+            }
+
+            [data-theme="dark"] .card-body{
+                background-color: darkslategray!important;
+                color: #eee!important;
+            }
+        </style>
+	</head>
+
+    <body class="bg-light">
+
+        <div id="header">
+            <div id="title" >
+                <h1>Animes Data <small>2020/2021</small></h1>
+                <a href="index.html">Profiles</a>
+            </div>
+        </div>
+
+       
+   
+            
+           
+                <div class="container" style="margin-top: 10px;">
+                    <div id="stats-rows" class="row justify-content-center">
+                        <div id="parcours" class='svg col-sm-3 mb-2 mr-2 ml-2 '>
+                            <p class="question">Types des Animés</p>
+                           <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><g transform="translate(100, 100)"><g display="none"><path d="M4.329780281177466e-15,-70.71067811865476A70.71067811865476,70.71067811865476,0,1,1,-4.329780281177466e-15,70.71067811865476A70.71067811865476,70.71067811865476,0,1,1,4.329780281177466e-15,-70.71067811865476Z" style="stroke: rgb(255, 255, 255); fill: rgb(191, 105, 105); fill-rule: evenodd;"></path><text transform="translate(2.164890140588733e-15,35.35533905932738)rotate(90)" text-anchor="middle" dx="6" dy=".35em" style="font-size: 11px; font-family: Arial, Helvetica;"></text><title>undefined: none</title></g><g><path d="M6.123233995736766e-15,-100A100,100,0,1,1,-45.198585096527836,89.2025106444428L-31.96022602179206,63.07570017555069A70.71067811865476,70.71067811865476,0,1,0,4.329780281177466e-15,-70.71067811865476Z" style="stroke: rgb(255, 255, 255); fill: rgb(191, 105, 105); fill-rule: evenodd;"></path><text transform="translate(83.01931421023929,19.83248279954628)rotate(13.435582822085896)" text-anchor="middle" dx="6" dy=".35em" style="font-size: 11px; font-family: Arial, Helvetica;">TV</text><title>TV: 281</title></g><g><path d="M-45.198585096527836,89.2025106444428A100,100,0,0,1,-99.98710198989922,-1.6060621599092468L-70.70155784824868,-1.1356574442789418A70.71067811865476,70.71067811865476,0,0,0,-31.96022602179206,63.07570017555069Z" style="stroke: rgb(255, 255, 255); fill: rgb(105, 191, 105); fill-rule: evenodd;"></path><text transform="translate(-73.08366254173848,44.0943553691176)rotate(328.89570552147245)" text-anchor="middle" dx="6" dy=".35em" style="font-size: 11px; font-family: Arial, Helvetica;">OVA</text><title>OVA: 87</title></g><g><path d="M-99.98710198989922,-1.6060621599092468A100,100,0,0,1,-1.8369701987210297e-14,-100L-1.29893408435324e-14,-70.71067811865476A70.71067811865476,70.71067811865476,0,0,0,-70.70155784824868,-1.1356574442789418Z" style="stroke: rgb(255, 255, 255); fill: rgb(105, 105, 191); fill-rule: evenodd;"></path><text transform="translate(-59.868705108437894,-60.83808062859676)rotate(405.4601226993865)" text-anchor="middle" dx="6" dy=".35em" style="font-size: 13px; font-family: Arial, Helvetica;">Movie</text><title>Movie: 121</title></g></g></svg>
+                        </div>
+                      
+                </div>
+             </div>
+
+             <div class="container" style="margin-top: 10px;">
+                <div id="stats-rows" class="row justify-content-center">
+                    <div id="parcours" class='svg col-sm-3'>
+                        <p class="question">Studio</p>
+                    <svg width="800" height="250" xmlns="http://www.w3.org/2000/svg"><g transform="translate(20,0)"><text x="-20" y="-7" style="font-size: 10px; font-family: Arial, Helvetica;">undefined</text><g class="y axis" transform="translate(0,0)" fill="none" font-size="10" font-family="sans-serif" text-anchor="end" style="font-size: 10px; font-family: Arial, Helvetica;"><path class="domain" stroke="#000" d="M-6,200.5H0.5V0.5H-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></path><g class="tick" opacity="1" transform="translate(0,200.5)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">0</text></g><g class="tick" opacity="1" transform="translate(0,188.23006134969324)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">10</text></g><g class="tick" opacity="1" transform="translate(0,175.9601226993865)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">20</text></g><g class="tick" opacity="1" transform="translate(0,163.69018404907976)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">30</text></g><g class="tick" opacity="1" transform="translate(0,151.420245398773)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">40</text></g><g class="tick" opacity="1" transform="translate(0,139.15030674846625)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">50</text></g><g class="tick" opacity="1" transform="translate(0,126.88036809815951)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">60</text></g><g class="tick" opacity="1" transform="translate(0,114.61042944785275)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">70</text></g><g class="tick" opacity="1" transform="translate(0,102.34049079754601)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">80</text></g><g class="tick" opacity="1" transform="translate(0,90.07055214723925)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">90</text></g><g class="tick" opacity="1" transform="translate(0,77.80061349693251)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">100</text></g><g class="tick" opacity="1" transform="translate(0,65.53067484662577)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">110</text></g><g class="tick" opacity="1" transform="translate(0,53.260736196319016)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">120</text></g><g class="tick" opacity="1" transform="translate(0,40.99079754601229)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">130</text></g><g class="tick" opacity="1" transform="translate(0,28.720858895705504)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">140</text></g><g class="tick" opacity="1" transform="translate(0,16.450920245398777)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">150</text></g><g class="tick" opacity="1" transform="translate(0,4.180981595092021)"><line stroke="#000" x2="-6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" x="-9" dy="0.32em">160</text></g></g><rect transform="translate(0,0)" class="bar" x="0" width="52" y="0" height="200" style="fill: rgb(191, 105, 105);"></rect><rect transform="translate(0,0)" class="bar" x="52" width="52" y="138.65030674846625" height="61.34969325153375" style="fill: rgb(191, 139, 105);"></rect><rect transform="translate(0,0)" class="bar" x="104" width="52" y="116.56441717791411" height="83.43558282208589" style="fill: rgb(191, 174, 105);"></rect><rect transform="translate(0,0)" class="bar" x="156" width="52" y="55.21472392638037" height="144.78527607361963" style="fill: rgb(174, 191, 105);"></rect><rect transform="translate(0,0)" class="bar" x="208" width="52" y="136.1963190184049" height="63.80368098159511" style="fill: rgb(139, 191, 105);"></rect><rect transform="translate(0,0)" class="bar" x="260" width="52" y="180.3680981595092" height="19.631901840490798" style="fill: rgb(105, 191, 105);"></rect><rect transform="translate(0,0)" class="bar" x="312" width="52" y="198.77300613496934" height="1.2269938650306642" style="fill: rgb(105, 191, 139);"></rect><rect transform="translate(0,0)" class="bar" x="364" width="52" y="198.77300613496934" height="1.2269938650306642" style="fill: rgb(105, 191, 174);"></rect><rect transform="translate(0,0)" class="bar" x="416" width="52" y="198.77300613496934" height="1.2269938650306642" style="fill: rgb(105, 174, 191);"></rect><rect transform="translate(0,0)" class="bar" x="468" width="52" y="184.04907975460122" height="15.950920245398777" style="fill: rgb(105, 139, 191);"></rect><rect transform="translate(0,0)" class="bar" x="520" width="52" y="197.54601226993864" height="2.453987730061357" style="fill: rgb(105, 105, 191);"></rect><rect transform="translate(0,0)" class="bar" x="572" width="52" y="198.77300613496934" height="1.2269938650306642" style="fill: rgb(139, 105, 191);"></rect><rect transform="translate(0,0)" class="bar" x="624" width="52" y="198.77300613496934" height="1.2269938650306642" style="fill: rgb(174, 105, 191);"></rect><rect transform="translate(0,0)" class="bar" x="676" width="52" y="198.77300613496934" height="1.2269938650306642" style="fill: rgb(191, 105, 174);"></rect><rect transform="translate(0,0)" class="bar" x="728" width="52" y="198.77300613496934" height="1.2269938650306642" style="fill: rgb(191, 105, 139);"></rect></g><g class="x axis" transform="translate(20,200)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle" style="font-size: 10px; font-family: Arial, Helvetica;"><path class="domain" stroke="#000" d="M0.5,6V0.5H780.5V6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></path><g class="tick" opacity="1" transform="translate(26.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">Toei Animation</text></g><g class="tick" opacity="1" transform="translate(78.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">Sunrise</text></g><g class="tick" opacity="1" transform="translate(130.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">OLM</text></g><g class="tick" opacity="1" transform="translate(182.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">J.C.Staff</text></g><g class="tick" opacity="1" transform="translate(234.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">TMS Entertainment</text></g><g class="tick" opacity="1" transform="translate(286.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">Kyoto Animation</text></g><g class="tick" opacity="1" transform="translate(338.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">Studio Core</text></g><g class="tick" opacity="1" transform="translate(390.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">LMD</text></g><g class="tick" opacity="1" transform="translate(442.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">NAZ</text></g><g class="tick" opacity="1" transform="translate(494.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">TNK</text></g><g class="tick" opacity="1" transform="translate(546.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">Tokyo Kids</text></g><g class="tick" opacity="1" transform="translate(598.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">Planet</text></g><g class="tick" opacity="1" transform="translate(650.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">Studio Zero</text></g><g class="tick" opacity="1" transform="translate(702.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">JCF</text></g><g class="tick" opacity="1" transform="translate(754.5,0)"><line stroke="#000" y2="6" style="shape-rendering: crispedges; fill: none; stroke: rgb(204, 204, 204);"></line><text fill="#000" y="9" dy="0.71em">TAKI Corporation</text></g></g></svg>
+                    </div>
+                  
+            </div>
+         </div>
+        
+            
+            
+
+        </script>
+    </body>
+</html>
