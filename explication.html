@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Anime Data</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="js/dimple.v2.3.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js" crossorigin="anonymous"></script>        
+        <script src="js/opml.js" ></script>
+        <script src="js/dataStudent.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+            #title h1{
+                font-family: 'Crimson Text', serif;
+                height: 10%;
+                margin-bottom: 5px;
+                text-align: center;
+            }
+
+            #title{
+                border-bottom: 1px solid #e8eceb;
+                margin-bottom: 15px;
+                background-color: whitesmoke;
+            }
+
+            .number{
+                font-style: italic;
+                color: darkgray;
+            }
+
+            input[type=text] {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            .hide{
+                display: none!important;
+            }
+
+            .profil-img {
+                border-radius: 1rem;
+                width: 100%;
+                height: auto;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+            button{
+                cursor: pointer;
+            }
+
+            [data-theme="dark"] #title{
+                background-color: rgb(8, 8, 8) !important;
+                color: #eee;
+            }
+
+            [data-theme="dark"] {
+                background-color: rgb(27, 27, 27) !important;
+                color: #eee;
+            }
+
+            [data-theme="dark"] .card-body{
+                background-color: darkslategray!important;
+                color: #eee!important;
+            }
+        </style>
+	</head>
+
+   
+    <body class="bg-light">
+
+        <div id="header">
+            <div id="title" >
+                <h1>Animes Data <small>2020/2021</small></h1>
+                <a href="index.html">Profiles</a>
+                <a href="statistique.html" style="margin-left:15px;">Statistiques</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <h3> Description du projet </h3>
+            <p>
+                Pour le cours D'Analyse, Gestion et visualisation des données massives, nous avons choisi de représenter les données d'une base de données qui concerne les différents Animés Japonais
+            </p>
+            <h3>Processus</h3>
+            <p>
+               Tout d'abord, nous avons choisi notre base de données sur Kaggle qui est une plateforme web qui contient de nombreuses bases de données. Une fois notre base de données choisi, nous nous sommes aperçu qu'il été difficile d'exploiter ces données, nous avons donc optée pour une seconde base de données, qui celle-ci correspondait mieux à notre besoin.
+                Dans un premier temps, une fois la base de données choisis nous avons fait un tri, effectivement, la base de données contenait 12 000 lignes de données, nous l'avons réduit jusqu'à avoir 500 données. En outre, nous avons éliminé les données non exploitables ou inintéressantes tel que le titre de l'oeuvre dans différentes langues. Enfin, une fois que nous avions recueillis toutes les données que nous voulions, nous avons commencé à implémenter les différents graphes pour visualiser les données choisis.  
+            </p>
+            <p>
+               Nous avons donc choisis de montrer les données suivantes: 
+            
+                    <li>Titre</li>
+                    <li>Images</li>
+                    <li>Notes</li>
+                    <li>Sources</li>
+                    <li>Studio</li>
+                    <li>Score</li>
+                    <li>Genre</li>
+                    <li>Date de Diffusion</li>
+              
+            </p>
+            <p>
+                <h3>Les différentes visualisation</h3> 
+                Quatres types de visualisation de données sont disponible
+                <li>Une cardboard</li>
+                <li> Trois diagramme circulaire</li>
+                <li> Un diagramme à barre </li>
+                
+            </p>
+            <hr/>
+            <h3> Analyse des diagrammes </h3>
+            <br>
+            <h6>Premier diagramme</h6>
+            <p>
+                La première visualisation qui est la cardboard permet de visualiser toutes les données disponible sous forme de card, il est possible de filtrer les données via leur genre, de plus à l'aide de la barre de recherche il est possible de rechercher un animé par son titre, mais aussi par le studio de productions qui listera tout les animés produit par le studio en question .
+              
+            </p>
+            <p>
+                Le premier diagramme nous montrent les différents Types d'animés que compose notre base de données, il suffira à l'aide de la souris de rester sur l'élément choisi pour avoir les chiffres exactes de chaque genres. En effet, on peu remarquer que dans notre base de données, 281 animés sont des séries TV, 87 sont des OVA(Original Video Animation), et 121 sont des films.
+            </p>
+            <br>
+            <h6>Deuxième diagramme</h6>
+            <p>
+                Le deuxième diagramme, quant à lui nous montre les diffusions des animés, à l'instar du premier diagramme, pour avoir les différents chiffres des diffusion il faudra rester sur l'élément, ainsi on peu voir qu'il y'a 3 types de diffusion :
+                <li>"Diffusion en cours", qui correspond aux animés qui sont diffusé à l'heure actuelle</li>
+                <li>"Diffusion terminé" qui correspond aux animés terminés et qui ne sont plus en productions</li>
+                <li>"Pas encore diffusé" qui, comme son nom l'indique, correpond aux animés qui ne sont pas encore diffusé.</li>
+
+                Ainsi, on peu remarquer que 477 des animés present sont terminés, tandis que 11 sont encore en diffusion et qu'1 n'est pas encore diffusé.
+            </p>
+            <br>
+            <h6>Troisième diagramme</h6>
+            <p>
+                Le troisième et dernier diagramme circulaire nous montre le rating des animés, le rating correspond à l'age conseillé pour les visionnés. On remarque qu'il y'a 6 rating:
+                <li>PG-13 Adolescent ou plus avec un nombre de 284</li>
+                <li>G Tout-Age avec un nombre de 47 </li>
+                <li>R+ Nudité douce avec un nombre de 53</li>
+                <li>R - 17+ Violence et blasphèmes avec un nombre de 43 </li>
+                <li>PG-Enfants avec un nombre de 60</li>
+                <li>Rx Hentai avec un nombre de 2</li>
+
+                On peu constater que dans un panel de 500 animés, la moitié est destiné pour les adolescents de 13 minimum
+            </p>
+            <br>
+            <h6>Quatrième diagramme</h6>
+            <p>
+                Ce diagramme est un diagramme à bar,en effet l'axe des abscisses indique les différents studios tandis que l'axe des ordonnées nous indique le nombre d'oeuvre que le studio à produits. On peu voir que le studio Toei Animation est le studio qui a produit le plus d'animés. Toei Animation est un voir le plus gros studio animation du Japon 
+            </p>
+            <hr/>
+            <h3> Liens des base de données</h3>
+            <p>
+               Comme expliqué précédemment, nous avons du changer de base de données car la première ne correspondait pas vraiment à nos attentes, cependant il nous semble nécessaire de les montrer
+               <li><a href="https://www.kaggle.com/CooperUnion/anime-recommendations-database">Première Base de données</a></li>
+               <li><a href="https://www.kaggle.com/azathoth42/myanimelist?select=AnimeList.csv">Notre base de données actuelles</a></li>
+               <li><a href="https://docs.google.com/spreadsheets/d/1lDQEsbuJvr_fpZukfjrQ69igEu97RdQ5jaLtr4Ezdwk/edit#gid=0">Base de données définitive après le tri des informations</a></li>
+            </p>
+
+            <h3>Difficultés rencontrés</h3>
+            <p>Lors de la réalisation de ce projet, nous avons rencontrés quelques difficultés.
+                En effet, dès le depart nous savions quel sujet traiter, cependant lors du choix de la base de données nous avons eu quelques petites surprise.
+                <br>
+                <h6>Diffcultés sur la base de données</h6>
+                <li>Tout d'abord, les données de la première base ne contenait pas d'images nous avons donc chercher une autre base de données qui devait en avoir  </li> 
+                <li>De plus, le tri des données et de garder que les données essentielles ont posé quelques problèmes,  nous avions au début 12 000 données, faire le tri sur un très grand nombre pose des difficultés nottamment pour garder les données les plus pertinentes </li>
+                <br>
+                <h6>Difficultés sur les filtres</h6>
+                <p>Concernant les filtres la seule grosse difficulté a été de trouver avec quel diagramme nous pouvons représenter les données pertinentes</p>
+            </p>
+
+
+
+     
+    </body>
+</html>
